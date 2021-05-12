@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+  clientapi:
+    image: golang:1.16
+    environment:
+      - GO111MODULE=on
+      - SCRAPE_URL=https://en.wikipedia.org
+    volumes:
+      - .:/go/src/go-scraper
+    working_dir: /go/src/go-scraper
+    command: make all
